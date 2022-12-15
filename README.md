@@ -5,7 +5,7 @@ The purpose of this repo is to have a pipeline with features including:
 * Small
 * Quick to run
 * Requires a small package, that can be installed with Conda or Spack
-  * Conda: `cowpy`
+  * Conda: `cowpy` (from `conda-forge`)
   * Spack: `cowsay`
 * Reads/writes files
 
