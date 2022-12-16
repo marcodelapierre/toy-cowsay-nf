@@ -5,9 +5,9 @@ params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
 
 process sayHello {
   input:
-    val x
+    val(x)
   output:
-    tuple val x, path('out_hello')
+    tuple val(x), path('out_hello')
   script:
     """
     echo '$x world!' >out_hello
@@ -17,9 +17,9 @@ process sayHello {
 process cowSay {
   publishDir = './out_$x'
   input:
-    tuple val x, path('out_hello')
+    tuple val(x), path('out_hello')
   output:
-    tuple val x, path('out_cow')
+    tuple val(x), path('out_cow')
   script:
     """
     touch out_cow
