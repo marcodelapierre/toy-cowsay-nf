@@ -7,7 +7,7 @@ process sayHello {
   input:
     val x
   output:
-    path('out_hello')
+    tuple val x, path('out_hello')
   script:
     """
     echo '$x world!' >out_hello
@@ -15,11 +15,11 @@ process sayHello {
 }
 
 process cowSay {
-  publishDir = '.'
+  publishDir = './out_$x'
   input:
-    path('out_hello')
+    tuple val x, path('out_hello')
   output:
-    path('out_cow')
+    tuple val x, path('out_cow')
   script:
     """
     touch out_cow
