@@ -32,6 +32,6 @@ process cowSay {
 workflow {
   input = Channel.from( params.hello )
   sayHello(input)   // | view
-  cowSay(input.out)
+  cowSay(sayHello.out)
 }
 
