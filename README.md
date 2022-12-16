@@ -4,8 +4,8 @@ The purpose of this repo is to have a pipeline with features including:
 
 General:
 * Simple
-* Small
-* Quick to run
+* Small (including required software)
+* Quick to setup and run
 
 Pipeline:
 * Requires a small package, that can be installed with Conda or Spack
@@ -15,9 +15,7 @@ Pipeline:
 
 Software options:
 * Host
-* Singularity container
-* Docker container
-* Podman container
+* Containers
 * Conda
 * Spack
 
