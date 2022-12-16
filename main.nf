@@ -7,14 +7,31 @@ process sayHello {
   input:
     val x
   output:
-    stdout
+    path('out_hello')
   script:
     """
-    echo '$x world!'
+    echo '$x world!' >out_hello
     """
 }
 
+process cowSay {
+  publishDir = '.'
+  input:
+    path('out_hello')
+  output:
+    path('out_cow')
+  script:
+    """
+    touch out_cow
+    cat out_hello | cowsay 1>/out_cow 2>/dev/null
+    cat out_hello | cowpy  1>/out_cow 2>/dev/null
+    """
+}
+
+
 workflow {
-  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+  input = Channel.from( params.hello )
+  sayHello(input)   // | view
+  cowSay(input.out)
 }
 
