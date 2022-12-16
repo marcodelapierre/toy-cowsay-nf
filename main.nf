@@ -15,7 +15,7 @@ process sayHello {
 }
 
 process cowSay {
-  publishDir = './out_$x'
+  publishDir = '.', mode: 'copy', saveAs: { 'out_$x' }
   input:
     tuple val(x), path('out_hello')
   output:
@@ -24,8 +24,7 @@ process cowSay {
     """
     touch out_cow
     cat out_hello | cowsay 1>>out_cow 2>/dev/null
-    cat out_hello | cowpy  1>>out_cow 2>/dev/null
-    echo " " &>/dev/null
+    # cat out_hello | cowpy  1>>out_cow 2>/dev/null
     """
 }
 
