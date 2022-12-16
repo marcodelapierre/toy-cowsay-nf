@@ -17,6 +17,7 @@ Software options:
 * Host
 * Singularity container
 * Docker container
+* Podman container
 * Conda
 * Spack
 
