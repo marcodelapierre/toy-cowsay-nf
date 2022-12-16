@@ -15,7 +15,7 @@ process sayHello {
 }
 
 process cowSay {
-  publishDir = '.', mode: 'copy', saveAs: 'out_$x'
+  publishDir '.', mode: 'copy', saveAs: { filename -> "out_$x" }
   input:
     tuple val(x), path('out_hello')
   output:
