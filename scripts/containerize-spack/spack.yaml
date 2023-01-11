@@ -1,0 +1,20 @@
+spack:
+  specs: [cowsay, nano]
+
+  concretizer:
+    unify: true
+
+  container:
+    format: "docker"
+
+    images:
+      os: "ubuntu:22.04"
+      spack: "0.19"
+
+    os_packages:
+      final:
+      - libgomp1
+
+    labels:
+      maintainer: "marco.delapierre@pawsey.org.au"
+
