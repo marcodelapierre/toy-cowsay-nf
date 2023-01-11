@@ -17,4 +17,3 @@ RUN pip install cowpy
 ENV PATH=/usr/games:$PATH
 
 CMD ["/bin/bash"]
-
