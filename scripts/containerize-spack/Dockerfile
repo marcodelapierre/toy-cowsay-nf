@@ -1,5 +1,5 @@
 # Build stage with Spack pre-installed and ready to be used
-FROM spack/ubuntu-jammy:0.19 as builder
+FROM spack/ubuntu-jammy:v0.19.0 as builder
 
 
 # What we want to install and how we want to install it
@@ -9,6 +9,7 @@ RUN mkdir /opt/spack-environment \
 &&   echo "  specs:" \
 &&   echo "  - cowsay" \
 &&   echo "  - nano" \
+&&   echo "  - ncurses abi=5" \
 &&   echo "  concretizer:" \
 &&   echo "    unify: true" \
 &&   echo "  config:" \

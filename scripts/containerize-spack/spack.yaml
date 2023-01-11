@@ -1,5 +1,8 @@
 spack:
-  specs: [cowsay, nano]
+  specs:
+  - cowsay
+  - nano
+  - ncurses abi=5
 
   concretizer:
     unify: true
@@ -9,7 +12,7 @@ spack:
 
     images:
       os: "ubuntu:22.04"
-      spack: "0.19"
+      spack: "v0.19.0"
 
     os_packages:
       final:
