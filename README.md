@@ -17,5 +17,6 @@ Software options:
 * Host
 * Containers
 * Conda
+* Conda with Wave
 * Spack
 
