@@ -10,7 +10,7 @@ archs="amd64 arm64"
 manifest="${repo}:${date_tag}${suffix}"
 os="linux"
 
-for arch in $archs ; docker
+for arch in $archs ; do
     plat="${os}/${arch}"
     platsuffix="-${plat/\//-}"
 
