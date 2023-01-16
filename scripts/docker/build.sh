@@ -18,6 +18,7 @@ for a in $archs ; do
 
     podman build \
         --platform linux/${a/-/\/} \
+        --no-cache \
         -t ${image} \
         .
 
