@@ -7,20 +7,8 @@ suffix=""
 archs="amd64 arm64"
 
 # should NOT need editing
-manifest="${repo}:${date_tag}${suffix}"
+image="${repo}:${date_tag}${suffix}"
 os="linux"
 
-for arch in $archs ; do
-    plat="${os}/${arch}"
-    platsuffix="-${plat/\//-}"
-
-    image="${manifest}${platsuffix}"
-    docker build --platform ${plat} -t ${image} .
-    docker push ${image}
-done
-
-docker manifest create \
-    ${manifest} \
-    eval echo ${manifest}-linux-{${archs/ /,}}
-
-docker manifest push ${manifest}
+docker build -t ${image} .
+docker push ${image}
