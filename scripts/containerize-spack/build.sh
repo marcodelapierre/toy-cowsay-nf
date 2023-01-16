@@ -8,15 +8,19 @@ archs="amd64 arm64"
 
 # should NOT need editing
 manifest="${repo}:${date_tag}${suffix}"
-plat="$( podman info | grep OsArch | cut -d ' ' -f 4 )"
-arch="$( echo $plat |cut -d / -f 2 )"
-archsuffix="-${plat/\//-}"
-if [ "$arch" == "arm64" ] ; then
-    podman="podman"
-else
-    podman="docker"
-fi
+os="linux"
 
-image="${manifest}${archsuffix}"
-$podman build -t ${image} .
-$podman push ${image}
+for arch in $archs ; do
+    plat="${os}/${arch}"
+    platsuffix="-${plat/\//-}"
+
+    image="${manifest}${platsuffix}"
+    docker build --platform ${plat} -t ${image} .
+    docker push ${image}
+done
+
+docker manifest create \
+    ${manifest} \
+    eval echo ${manifest}-linux-{${archs/ /,}}
+
+docker manifest push ${manifest}
