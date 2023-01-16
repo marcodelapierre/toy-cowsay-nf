@@ -11,7 +11,12 @@ manifest="${repo}:${date_tag}${suffix}"
 plat="$( podman info | grep OsArch | cut -d ' ' -f 4 )"
 arch="$( echo $plat |cut -d / -f 2 )"
 archsuffix="-${plat/\//-}"
+if [ "$arch" == "arm64" ] ; then
+    podman="podman"
+else
+    podman="docker"
+fi
 
 image="${manifest}${archsuffix}"
-podman build -t ${image} .
-podman push ${image}
+$podman build -t ${image} .
+$podman push ${image}
