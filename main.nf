@@ -12,6 +12,10 @@ process sayHello {
     """
     echo '$x world!' >out_hello
     """
+  stub:
+    """
+    touch out_hello
+    """
 }
 
 process cowSay {
@@ -25,6 +29,10 @@ process cowSay {
     cat out_hello | cowsay 1>out_cow 2>/dev/null || 
     cat out_hello | cowpy  1>out_cow 2>/dev/null
     """
+  stub:
+   """
+   touch out_cow
+   """
 }
 
 workflow {
