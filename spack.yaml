@@ -1,0 +1,6 @@
+spack:
+  specs: [cowsay]
+
+  view: true
+  concretizer:
+    unify: true
