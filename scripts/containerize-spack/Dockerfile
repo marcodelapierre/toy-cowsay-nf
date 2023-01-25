@@ -8,8 +8,7 @@ RUN mkdir /opt/spack-environment \
 &&  (echo "spack:" \
 &&   echo "  specs:" \
 &&   echo "  - cowsay" \
-&&   echo "  - nano" \
-&&   echo "  - ncurses abi=5" \
+&&   echo "  - nano ^ncurses abi=5" \
 &&   echo "  concretizer:" \
 &&   echo "    unify: true" \
 &&   echo "  config:" \
