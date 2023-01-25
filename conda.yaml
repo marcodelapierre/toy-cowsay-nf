@@ -1,4 +1,4 @@
-name: conda-toy-cowsay-nf
+name: env
 channels:
   - conda-forge
   - defaults
