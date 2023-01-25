@@ -1,0 +1,6 @@
+name: conda-toy-cowsay-nf
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - cowpy
