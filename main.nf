@@ -4,6 +4,7 @@ nextflow.enable.dsl=2
 params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
 
 process sayHello {
+//  arch 'zen2'
   input:
     val(x)
   output:
@@ -19,6 +20,7 @@ process sayHello {
 }
 
 process cowSay {
+//  arch 'zen3'
   publishDir '.', mode: 'copy', saveAs: { filename -> "out_$x" }
   input:
     tuple val(x), path('out_hello')
