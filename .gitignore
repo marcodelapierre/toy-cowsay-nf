@@ -1,2 +1,5 @@
 .vscode/
 out_*
+.nextflow.log*
+.nextflow/
+work/
