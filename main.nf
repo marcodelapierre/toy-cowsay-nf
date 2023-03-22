@@ -4,7 +4,7 @@ nextflow.enable.dsl=2
 params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
 
 process sayHello {
-//  arch 'zen2'
+//  arch 'x86_64_v2'
 //  spack 'cowsay nano ^ncurses abi=5'
   input:
     val(x)
@@ -21,7 +21,7 @@ process sayHello {
 }
 
 process cowSay {
-//  arch 'zen3'
+//  arch 'x86_64'
 //  spack 'cowsay '
   publishDir '.', mode: 'copy', saveAs: { filename -> "out_$x" }
   input:
