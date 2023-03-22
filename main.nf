@@ -5,6 +5,7 @@ params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
 
 process sayHello {
 //  arch 'zen2'
+//  spack 'cowsay nano ^ncurses abi=5'
   input:
     val(x)
   output:
@@ -21,6 +22,7 @@ process sayHello {
 
 process cowSay {
 //  arch 'zen3'
+//  spack 'cowsay '
   publishDir '.', mode: 'copy', saveAs: { filename -> "out_$x" }
   input:
     tuple val(x), path('out_hello')
