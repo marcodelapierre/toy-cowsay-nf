@@ -5,6 +5,7 @@ params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
 
 process sayHello {
 //  arch 'x86_64_v2'
+//  arch 'linux/x86_64', target: 'x86_64_v2'
 //  spack 'cowsay nano ^ncurses abi=5'
   input:
     val(x)
@@ -22,6 +23,7 @@ process sayHello {
 
 process cowSay {
 //  arch 'x86_64'
+//  arch 'linux/x86_64', target: 'x86_64_v2'
 //  spack 'cowsay '
   publishDir '.', mode: 'copy', saveAs: { filename -> "out_$x" }
   input:
