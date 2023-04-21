@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2 
 
-params.hello = [ 'Bonjour', 'Ciao', 'Hello', 'Hola' ]
+params.hello = 'Bonjour,Ciao,Hello,Hola'
 
 process sayHello {
 //  arch 'x86_64_v2'
@@ -42,7 +42,7 @@ process cowSay {
 }
 
 workflow {
-  input = Channel.from( params.hello )
+  input = Channel.fromList( params.hello.tokenize(',') )
 
   sayHello(input)
   cowSay(sayHello.out)
