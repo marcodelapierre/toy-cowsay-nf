@@ -19,4 +19,4 @@ Software options:
 * Conda
 * Conda with Wave
 * Spack
-
+* Spack with Wave
